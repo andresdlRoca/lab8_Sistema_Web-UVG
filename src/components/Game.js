@@ -1,40 +1,65 @@
 import React, { Component } from 'react';
-import { useState } from 'react';
 import './Game.css';
-import BackgroundIMG from '../assets/background.png'
+import CartaBackside from '../assets/cardback.png';
+import turtwig from '../assets/turtwig.png';
+import pikachu from '../assets/pikachu.png';
+import greninja from '../assets/greninja.png';
+import rowlet from '../assets/rowlet.png';
 
-const cardsSources = [
-    { "src" : "../assets/turtwig.png"},
-    { "src" : "../assets/greninja.png"},
-    { "src" : "../assets/rowlet.png"},
-    { "src" : "../assets/pikachu.png"}
-]
+class Game extends Component {
+    constructor(props){
+        super(props);
 
-function NewGame() {
-    const [cartas, setcartas] = useState([]);
-    const [turnos, setturnos] = useState(0);
+        //New Variables for item and text
+        this.state = {
+            cartas: [],
+            turnos: 0,
+        };
+        //Handle change on data
+        this.changeCartas = this.changeCartas.bind(this);
+        //this.addTurnos = this.addTurnos.bind(this);
+    }
 
-    const randomize = () => {
-        const cartasRandomized = [...cardsSources, ...cardsSources].sort(() => Math.random() - 0.5).map((carta) => ({...carta, index: Math.random()})) //Array de cartas ya randomizadas
-
-        setcartas(cartasRandomized)
-        setturnos(0)
+    changeCartas($event){
+        $event.preventDefault();
+        const cardsSources = [
+            { "src" : turtwig},
+            { "src" : pikachu},
+            { "src" : greninja},
+            { "src" : rowlet}
+        ]   
+        //const cartasRandomized = [...cardsSources, ...cardsSources].sort(() => Math.random() - 0.5); //Array de cartas ya randomizadas
+        //let cartas = this.state.cartas;
+        let cartasUpdate = cardsSources;
+        //cartasUpdate = cartasRandomized;
+        
+        this.setState({
+            cartas: cartasUpdate,
+        }/*, () => {
+            console.log(this.state.cartas[0]['src']);
+        }*/);
+        console.log(this.state.cartas);
         
     }
 
-    console.log(cartas,turnos)
-}
-
-
-class Game extends Component {
+    
 
     render() {
         return (
         <>
             <div className='mainUI'>
                 <h1 id='titulo'>Bienvenido al juego de memoria!</h1>
-                <button onClick={NewGame} id="newgameBtn">Nueva Partida</button>
+                <button onClick={this.changeCartas} id="newgameBtn">Nueva Partida</button>
             </div>
+            <div className='grid-cartas'>
+                    <div className="carta">
+                        <div>
+                            <img className="frontside" src={this.state.cartas[0]}/>
+                            <img className="backside" src={CartaBackside}/>
+                        </div>
+                    </div>
+                </div>
+
         </>
 
         );
