@@ -5,11 +5,9 @@ import "./index.css";
 import background from './assets/background.png'
 
 ReactDOM.render(
-    <Game />
-    
-    
-    
-    
-
-    
+    <>
+        <img id='background' src={background}/>
+        <Game />  
+    </>
+  
     , document.getElementById('game'));

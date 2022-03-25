@@ -10,6 +10,7 @@
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: blue;
     text-align: center;
+    overflow: auto;
     color: yellow;
 }
 
@@ -22,4 +23,9 @@
     border: 2px solid blue;
     border-radius: 5px;
 }
+
+#newgameBtn:hover {
+    background: blueviolet;
+}
+
 
