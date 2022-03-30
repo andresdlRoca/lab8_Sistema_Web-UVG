@@ -77,6 +77,7 @@ export default function GameHooks() {
         }
     }, [firstSelect, secondSelect])
 
+    //Chequeo de las condiciones de victoria del juego
     const chequeoVictoria = () => {
         
         let resultado = cartas.every((i) => {
