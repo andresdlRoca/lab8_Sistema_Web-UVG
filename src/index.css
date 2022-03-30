@@ -9,7 +9,9 @@ body{
 #background {
     position: absolute;
     width: 99%;
-    height: 98%;
+    height: 170%;
     z-index: -1;
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
 }
 
