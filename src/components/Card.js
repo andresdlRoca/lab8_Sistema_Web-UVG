@@ -1,16 +1,20 @@
-import React, { Component } from 'react';
 import './Card.css';
+import React, { useState, useEffect } from "react";
+import CartaBackside from '../assets/cardback.png';
 
-class Card extends Component {
-    render() {
-        return (
-        <div>
-            <h1>*Carta*</h1>
-        </div>
-        );
-        
+export default function Card({ carta, chequeoCartas }) {
+
+    const seleccionCarta = () => {
+        chequeoCartas(carta)
     }
 
-}
 
-export default Card;
+    return (
+        <div className="carta" >
+            <div>
+                <img className="frontside" src={carta.src}/>
+                <img className="backside" src={CartaBackside} onClick={seleccionCarta}/>
+            </div>
+        </div>
+    );
+}

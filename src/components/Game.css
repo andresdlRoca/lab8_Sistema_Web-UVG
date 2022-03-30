@@ -28,4 +28,19 @@
     background: blueviolet;
 }
 
+.frontside {
+    height: 39%;
+    width: 39%;
+}
 
+.backside {
+    height: 40%;
+    width: 40%;
+}
+
+.grid-cartas {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin-left: 5%;
+}

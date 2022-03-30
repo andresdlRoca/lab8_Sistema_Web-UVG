@@ -34,10 +34,10 @@ module.exports = {
         }
       },
       {
-        test: /\.(png|jpe?g|gif|mp4)$/i,
+        test: /\.(png|jpe?g|gif|mp4|mp3)$/i,
         loader: 'file-loader',
         options: {
-          outputPath: 'images',
+          outputPath: 'media',
         },
       },
     ],

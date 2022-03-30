@@ -12,7 +12,9 @@ class Game extends Component {
 
         //New Variables for item and text
         this.state = {
-            cartas: [],
+            cartas: [{
+                src:""
+            }],
             turnos: 0,
         };
         //Handle change on data
@@ -28,17 +30,14 @@ class Game extends Component {
             { "src" : greninja},
             { "src" : rowlet}
         ]   
-        //const cartasRandomized = [...cardsSources, ...cardsSources].sort(() => Math.random() - 0.5); //Array de cartas ya randomizadas
-        //let cartas = this.state.cartas;
-        let cartasUpdate = cardsSources;
-        //cartasUpdate = cartasRandomized;
+        const cartasRandomized = [...cardsSources, ...cardsSources].sort(() => Math.random() - 0.5); //Array de cartas ya randomizadas
         
+        let cartasUpdate = cartasRandomized;
+       
+       
         this.setState({
             cartas: cartasUpdate,
-        }/*, () => {
-            console.log(this.state.cartas[0]['src']);
-        }*/);
-        console.log(this.state.cartas);
+        })
         
     }
 
@@ -54,8 +53,9 @@ class Game extends Component {
             <div className='grid-cartas'>
                     <div className="carta">
                         <div>
-                            <img className="frontside" src={this.state.cartas[0]}/>
+                            <img className="frontside" src={this.state.cartas[0].src}/>
                             <img className="backside" src={CartaBackside}/>
+                            
                         </div>
                     </div>
                 </div>

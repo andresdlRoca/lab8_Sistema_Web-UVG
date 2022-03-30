@@ -1,0 +1,14 @@
+.carta {
+    position: relative;
+}
+
+.carta img {
+    border-radius: 5px;
+    margin-top: 3%;
+}
+
+.frontside {
+    border: 5px solid rgb(0, 0, 122);
+    width: 37.5%;
+    height: 37.5%;
+}
